@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3ab743-e42f-46d2-a799-e5167020be8c" name="Changes" comment="TextMenu">
+    <list default="true" id="3f3ab743-e42f-46d2-a799-e5167020be8c" name="Changes" comment="TextMenu added">
+      <change afterPath="$PROJECT_DIR$/src/RegularCharacters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextMenu.java" afterDir="false" />
     </list>
@@ -74,7 +75,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687468305095</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TextMenu added">
+      <created>1687468962737</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687468962737</updated>
+    </task>
+    <task id="LOCAL-00005" summary="TextMenu added">
+      <created>1687469003395</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687469003395</updated>
+    </task>
+    <task id="LOCAL-00006" summary="TextMenu added">
+      <created>1687469098645</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687469098645</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +140,7 @@
     <MESSAGE value="Rename engine's name" />
     <MESSAGE value="Rename engine's name." />
     <MESSAGE value="TextMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="TextMenu" />
+    <MESSAGE value="TextMenu added" />
+    <option name="LAST_COMMIT_MESSAGE" value="TextMenu added" />
   </component>
 </project>
