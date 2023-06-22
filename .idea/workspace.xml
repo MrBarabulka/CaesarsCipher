@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3ab743-e42f-46d2-a799-e5167020be8c" name="Changes" comment="" />
+    <list default="true" id="3f3ab743-e42f-46d2-a799-e5167020be8c" name="Changes" comment="Rename engine's name.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TextMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaesarCipher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CaesarsCipher.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CaesarEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CaesarsEngine.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,18 +42,21 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/Мои документы/Study/JavaRUSH/CaesarCipher"
   }
 }]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="CaesarCipher" />
+      <module name="CaesarsCipher" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CaesarCipher" />
+      <module name="CaesarsCipher" />
       <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -61,6 +72,21 @@
       <option name="presentableId" value="Default" />
       <updated>1687461436129</updated>
     </task>
+    <task id="LOCAL-00001" summary="Rename Project's name">
+      <created>1687462723911</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687462723911</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Rename engine's name.">
+      <created>1687462840789</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687462840789</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,5 +124,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Rename Project's name" />
+    <MESSAGE value="Rename engine's name" />
+    <MESSAGE value="Rename engine's name." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename engine's name." />
   </component>
 </project>
