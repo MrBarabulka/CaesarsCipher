@@ -7,7 +7,7 @@ import java.nio.file.StandardOpenOption;
 
 public class CaesarsEngineDecrypt {
     private PrintToScreenEngine printToScreenEngine;
-    private TextMenu textMenu;
+    private TextMenu textMenu;    
 
     public CaesarsEngineDecrypt(PrintToScreenEngine printToScreenEngine, TextMenu textMenu) {
         this.printToScreenEngine = printToScreenEngine;
