@@ -5,7 +5,7 @@ public class TextMenu {
 
     private PrintToScreenEngine printToScreenEngine;
     private CaesarsEngineEncrypt caesarsEngineEncrypt;
-    private CaesarsEngineDecrypt caesarsEngineDecrypt;
+    private CaesarsEngineDecrypt caesarsEngineDecrypt;    
 
     public TextMenu(PrintToScreenEngine printToScreenEngine) {
         this.printToScreenEngine = printToScreenEngine;
