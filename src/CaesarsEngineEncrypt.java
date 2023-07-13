@@ -6,7 +6,7 @@ import java.nio.file.StandardOpenOption;
 
 public class CaesarsEngineEncrypt {
     private PrintToScreenEngine printToScreenEngine;
-    private TextMenu textMenu;
+    private TextMenu textMenu;    
 
     public CaesarsEngineEncrypt(PrintToScreenEngine printToScreenEngine, TextMenu textMenu) {
         this.printToScreenEngine = printToScreenEngine;
