@@ -16,7 +16,7 @@ public class RegularCharacters {
     public static final String SUCCESSFULL_ENCRYPT = "The text was successfully encrypted and written to a file.";
     public static final String ERROR_ENCRYPT = "File encryption error: ";
     public static final String SUCCESSFULL_DECRYPT = "The text was successfully decrypted and written to a file.";
-    public static final String ERROR_DECRYPT = "File decryption error: ";
+    public static final String ERROR_DECRYPT = "File decryption error: ";    
     public static final String DECRYPTING_WITH_KEY = "Performing decryption with a specified key length: ";
     public static final String DECRYPTING_WITHOUT_KEY = "Performing decryption without a specified key length. BTUTEFORCE IT ALL!";
 
