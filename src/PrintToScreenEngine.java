@@ -6,7 +6,7 @@ public class PrintToScreenEngine {
         if (isRedColor) {
             System.out.println(ANSI_RED + report + ANSI_RESET);
         } else {
-            System.out.println(report);
+            System.out.println(report);    
         }
     }
 }
