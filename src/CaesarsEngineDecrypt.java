@@ -6,35 +6,35 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
 public class CaesarsEngineDecrypt {
-    private PrintToScreenEngine printToScreenEngine;
-    private TextMenu textMenu;
+    private final PrintToScreenEngine printToScreenEngine;
+    private final Menu menu;
 
-    public CaesarsEngineDecrypt(PrintToScreenEngine printToScreenEngine, TextMenu textMenu) {
+    public CaesarsEngineDecrypt(PrintToScreenEngine printToScreenEngine, Menu menu) {
         this.printToScreenEngine = printToScreenEngine;
-        this.textMenu = textMenu;
+        this.menu = menu;
     }
 
     public void decryptFileWithCaesarsCipher() {
         Scanner scanner = new Scanner(System.in);
 
-        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_OPEN, false);
+        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_OPEN);
         String inputFilePath = scanner.nextLine();
 
         if (!Files.exists(Path.of(inputFilePath))) {
-            printToScreenEngine.printTo(RegularCharacters.FILE_DOES_NOT_EXIST, true);
+            printToScreenEngine.printTo(RegularCharacters.FILE_DOES_NOT_EXIST);
             decryptFileWithCaesarsCipher();
             return;
         }
 
-        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_SAVE, false);
+        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_SAVE);
         String outputFilePath = scanner.nextLine();
 
-        printToScreenEngine.printTo(RegularCharacters.SELECT_KEY_LENGTH_TO_DECRYPT, false);
+        printToScreenEngine.printTo(RegularCharacters.SELECT_KEY_LENGTH_TO_DECRYPT);
         int keyLength = scanner.nextInt();
         scanner.nextLine();
 
         if (keyLength == 0) {
-            printToScreenEngine.printTo(RegularCharacters.DECRYPTING_WITHOUT_KEY, false);
+            printToScreenEngine.printTo(RegularCharacters.DECRYPTING_WITHOUT_KEY);
 
             try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
                  BufferedWriter writer = Files.newBufferedWriter(Path.of(outputFilePath), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
@@ -56,18 +56,17 @@ public class CaesarsEngineDecrypt {
                         writer.newLine();
                     }
 
-                    writer.newLine(); // Добавляем пустую строку между разными сдвигами
+                    writer.newLine(); // Додаємо порожнюю строку між різними зсувами
                 }
 
-                printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_DECRYPT, false);
-                textMenu.textMenuStart();
+                printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_DECRYPT);
+                menu.start();
             } catch (IOException e) {
-                printToScreenEngine.printTo(RegularCharacters.ERROR_DECRYPT + e.getMessage(), true);
-                textMenu.textMenuStart();
+                printToScreenEngine.printTo(RegularCharacters.ERROR_DECRYPT + e.getMessage());
+                menu.start();
             }
-            return;
         } else {
-            printToScreenEngine.printTo(RegularCharacters.DECRYPTING_WITH_KEY + keyLength, false);
+            printToScreenEngine.printTo(RegularCharacters.DECRYPTING_WITH_KEY + keyLength);
 
             try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
                  BufferedWriter writer = Files.newBufferedWriter(Path.of(outputFilePath), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
@@ -81,11 +80,11 @@ public class CaesarsEngineDecrypt {
 
                 writer.close(); // Закрываем BufferedWriter после завершения записи
 
-                printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_DECRYPT, false);
-                textMenu.textMenuStart();
+                printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_DECRYPT);
+                menu.start();
             } catch (IOException e) {
-                printToScreenEngine.printTo(RegularCharacters.ERROR_DECRYPT + e.getMessage(), true);
-                textMenu.textMenuStart();
+                printToScreenEngine.printTo(RegularCharacters.ERROR_DECRYPT + e.getMessage());
+                menu.start();
         }
     }
 }
@@ -111,4 +110,3 @@ public class CaesarsEngineDecrypt {
         return decryptedText.toString();
     }
 }
-
