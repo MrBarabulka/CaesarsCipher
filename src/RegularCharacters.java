@@ -1,8 +1,6 @@
 public class RegularCharacters {
     public static final String ENGLISH_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
     public static final String PUNCTUATION_MARKS = ".?!,;:-()\"";
-
     public static final String ERROR_MENU_SELECTION = "Wrong number! Select the menu item again!";
     public static final String NOT_A_NUMBER = "it's not a number! Select the menu item again!";
     public static final String ENCRYPT_ENGINE_START = "Caesars encrypt engine launched...";
@@ -16,9 +14,9 @@ public class RegularCharacters {
     public static final String SUCCESSFULL_ENCRYPT = "The text was successfully encrypted and written to a file.";
     public static final String ERROR_ENCRYPT = "File encryption error: ";
     public static final String SUCCESSFULL_DECRYPT = "The text was successfully decrypted and written to a file.";
-    public static final String ERROR_DECRYPT = "File decryption error: ";    
+    public static final String ERROR_DECRYPT = "File decryption error: ";
     public static final String DECRYPTING_WITH_KEY = "Performing decryption with a specified key length: ";
-    public static final String DECRYPTING_WITHOUT_KEY = "Performing decryption without a specified key length. BTUTEFORCE IT ALL!";
+    public static final String DECRYPTING_WITHOUT_KEY = "Performing decryption without a specified key length. BRUTEFORCE IT ALL!";
 
     public static final String TEXT_MENU =
             """
