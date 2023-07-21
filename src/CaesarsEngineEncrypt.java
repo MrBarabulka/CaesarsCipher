@@ -5,30 +5,30 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
 public class CaesarsEngineEncrypt {
-    private PrintToScreenEngine printToScreenEngine;
-    private TextMenu textMenu;    
+    private final PrintToScreenEngine printToScreenEngine;
+    private final Menu menu;
 
-    public CaesarsEngineEncrypt(PrintToScreenEngine printToScreenEngine, TextMenu textMenu) {
+    public CaesarsEngineEncrypt(PrintToScreenEngine printToScreenEngine, Menu menu) {
         this.printToScreenEngine = printToScreenEngine;
-        this.textMenu = textMenu;
+        this.menu = menu;
     }
 
     public void encryptFileWithCaesarsCipher() {
         Scanner scanner = new Scanner(System.in);
 
-        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_OPEN, false);
+        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_OPEN);
         String inputFilePath = scanner.nextLine();
 
         if (!Files.exists(Path.of(inputFilePath))) {
-            printToScreenEngine.printTo(RegularCharacters.FILE_DOES_NOT_EXIST, true);
+            printToScreenEngine.printTo(RegularCharacters.FILE_DOES_NOT_EXIST);
             encryptFileWithCaesarsCipher();
             return;
         }
 
-        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_SAVE, false);
+        printToScreenEngine.printTo(RegularCharacters.ENTER_PATH_FILE_SAVE);
         String outputFilePath = scanner.nextLine();
 
-        printToScreenEngine.printTo(RegularCharacters.SELECT_KEY_LENGTH_TO_ENCRYPT, false);
+        printToScreenEngine.printTo(RegularCharacters.SELECT_KEY_LENGTH_TO_ENCRYPT);
         int shift = scanner.nextInt();
         scanner.nextLine(); // Зчитування символу новою строки після вводу довжини ключа
 
@@ -42,11 +42,11 @@ public class CaesarsEngineEncrypt {
                 writer.newLine();
             }
             writer.close(); // Примусово закриваємо BufferedWriter, бо він не дає відкрити готовий файл з зашифрованим текстом
-            printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_ENCRYPT,false);
-            textMenu.textMenuStart();
+            printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_ENCRYPT);
+            menu.start();
         } catch (IOException e) {
-            printToScreenEngine.printTo(RegularCharacters.ERROR_ENCRYPT + e.getMessage(), true);
-            textMenu.textMenuStart();
+            printToScreenEngine.printTo(RegularCharacters.ERROR_ENCRYPT + e.getMessage());
+            menu.start();
         } finally {
             scanner.close();
         }
