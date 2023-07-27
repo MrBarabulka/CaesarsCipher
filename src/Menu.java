@@ -1,11 +1,9 @@
 import java.util.Scanner;
 
 public class Menu {
-
     private static final int ENCRYPT_FILE = 1;
     private static final int DECRYPT_FILE = 2;
     private static final int EXIT_APPLICATION = 0;
-    private static boolean isRunning = true;
     private final PrintToScreenEngine printToScreenEngine;
     private final CaesarsEngineEncrypt caesarsEngineEncrypt;
     private final CaesarsEngineDecrypt caesarsEngineDecrypt;
@@ -16,31 +14,30 @@ public class Menu {
         this.caesarsEngineDecrypt = new CaesarsEngineDecrypt(printToScreenEngine, this);
     }
 
-    Scanner scanner = new Scanner(System.in);
-
     public void start() {
-        while (isRunning) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
             printToScreenEngine.printTo(RegularCharacters.TEXT_MENU);
 
             if (scanner.hasNextInt()) {
                 int menuItem = scanner.nextInt();
                 if (menuItem == ENCRYPT_FILE) {
-                    caesarEngineEncrypt();
-                    isRunning = false;
+                    caesarsEngineEncrypt.encryptFileWithCaesarsCipher();
                 } else if (menuItem == DECRYPT_FILE) {
-                    caesarEngineDecrypt();
-                    isRunning = false;
+                    caesarsEngineDecrypt.decryptFileWithCaesarsCipher();
                 } else if (menuItem == EXIT_APPLICATION) {
                     textMenuExit();
-                    isRunning = false;
+                    break;
                 } else {
                     printToScreenEngine.printTo(RegularCharacters.ERROR_MENU_SELECTION);
                 }
             } else {
                 printToScreenEngine.printTo(RegularCharacters.NOT_A_NUMBER);
-                scanner.next(); // Пропускаем неверный ввод
+                scanner.next();
             }
         }
+        scanner.close();
     }
 
     private void caesarEngineEncrypt() {
@@ -51,7 +48,6 @@ public class Menu {
     private void caesarEngineDecrypt() {
         printToScreenEngine.printTo(RegularCharacters.DECRYPT_ENGINE_START);
         caesarsEngineDecrypt.decryptFileWithCaesarsCipher();
-
     }
 
     public void textMenuExit() {
