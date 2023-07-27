@@ -1,0 +1,96 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+
+public abstract class CaesarsEngine {
+    protected static final char UPPERCASE_A = 'A';
+    protected static final char LOWERCASE_A = 'a';
+    protected static final int ALPHABET_SIZE = 26;
+
+    protected final PrintToScreenEngine printToScreenEngine;
+    protected final Menu menu;
+
+    public CaesarsEngine(PrintToScreenEngine printToScreenEngine, Menu menu) {
+        this.printToScreenEngine = printToScreenEngine;
+        this.menu = menu;
+    }
+
+    protected abstract String processText(String text, int keyLength);
+
+    public void processFileWithCaesarsCipher(boolean isEncrypting) {
+        Scanner scanner = new Scanner(System.in);
+
+        printToScreenEngine.printTo(isEncrypting ? RegularCharacters.ENTER_PATH_FILE_OPEN : RegularCharacters.ENTER_PATH_FILE_SAVE);
+        String inputFilePath = scanner.nextLine();
+
+        if (!Files.exists(Path.of(inputFilePath))) {
+            printToScreenEngine.printTo(RegularCharacters.FILE_DOES_NOT_EXIST);
+            processFileWithCaesarsCipher(isEncrypting);
+            return;
+        }
+
+        printToScreenEngine.printTo(isEncrypting ? RegularCharacters.ENTER_PATH_FILE_SAVE : RegularCharacters.ENTER_PATH_FILE_OPEN);
+        String outputFilePath = scanner.nextLine();
+
+        printToScreenEngine.printTo(isEncrypting ? RegularCharacters.SELECT_KEY_LENGTH_TO_ENCRYPT : RegularCharacters.SELECT_KEY_LENGTH_TO_DECRYPT);
+        int keyLength = scanner.nextInt();
+        scanner.nextLine();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
+             BufferedWriter writer = Files.newBufferedWriter(Path.of(outputFilePath), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String processedLine = processText(line, keyLength);
+                writer.write(processedLine);
+                writer.newLine();
+            }
+
+            writer.close();
+            printToScreenEngine.printTo(isEncrypting ? RegularCharacters.SUCCESSFULL_ENCRYPT : RegularCharacters.SUCCESSFULL_DECRYPT);
+            menu.start();
+        } catch (IOException e) {
+            printToScreenEngine.printTo(isEncrypting ? RegularCharacters.ERROR_ENCRYPT + e.getMessage() : RegularCharacters.ERROR_DECRYPT + e.getMessage());
+            menu.start();
+        } finally {
+            scanner.close();
+        }
+    }
+
+    void decryptWithBruteforce(String inputFilePath, String outputFilePath) {
+        printToScreenEngine.printTo(RegularCharacters.DECRYPTING_WITHOUT_KEY);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
+             BufferedWriter writer = Files.newBufferedWriter(Path.of(outputFilePath), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+
+            ArrayList<String> lines = new ArrayList<>();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+
+            for (int i = 1; i < ALPHABET_SIZE; i++) {
+                writer.write("Shift: " + i);
+                writer.newLine();
+
+                for (String decryptedLine : lines) {
+                    String decryptedText = processText(decryptedLine, i);
+                    writer.write(decryptedText);
+                    writer.newLine();
+                }
+
+                writer.newLine();
+            }
+
+            printToScreenEngine.printTo(RegularCharacters.SUCCESSFULL_DECRYPT);
+            menu.start();
+        } catch (IOException e) {
+            printToScreenEngine.printTo(RegularCharacters.ERROR_DECRYPT + e.getMessage());
+            menu.start();
+        }
+    }
+}
